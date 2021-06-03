@@ -34,10 +34,11 @@
               {left: '$', right: '$', display: false},
               {left: '\\(', right: '\\)', display: false},
               {left: '\\[', right: '\\]', display: true}
-          ],
-          // • rendering keys, e.g.:
-          throwOnError : false
+              ],
+              // • rendering keys, e.g.:
+              throwOnError : false
+            });
         });
-    });
-</script>
+    </script>
+    <script async src="{{ $features.RelPermalink }}" data-enable-footnotes="{{ .Site.Params.enableFootnotes | default true }}"></script>
 </footer>
