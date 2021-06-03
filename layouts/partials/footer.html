@@ -23,7 +23,7 @@
         onload="renderMathInElement(document.querySelector('.article-post'));"></script>
     {{- end }}
     {{ $features := resources.Get "js/features.js" | minify | fingerprint }}
-    <script async src="{{ $features.RelPermalink }}"></script>
+    <script async src="{{ $features.RelPermalink }}" data-enable-footnotes="{{ .Site.Params.enableFootnotes | default true }}"></script>
     <script>
     document.addEventListener("DOMContentLoaded", function() {
         renderMathInElement(document.body, {
@@ -40,5 +40,4 @@
             });
         });
     </script>
-    <script async src="{{ $features.RelPermalink }}" data-enable-footnotes="{{ .Site.Params.enableFootnotes | default true }}"></script>
 </footer>
