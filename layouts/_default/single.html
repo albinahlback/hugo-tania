@@ -8,7 +8,21 @@
                     <h1>{{ .Title }}</h1>
                     <div class="post-meta">
                         <div>
-                            By {{ .Params.author }} on <time>{{ .Date.Format "January 02, 2006" }}</time>
+                            {{ if .Params.author }}
+                                {{ if .Date }}
+                                    By {{ .Params.author }} on <time>{{ .Date.Format "2 January, 2006" }}</time>
+                                {{ else }}
+                                    By {{ .Params.author }}
+                                {{ end }}
+                            {{ else }}
+                                {{ if .Date }}
+                                Written <time>{{ .Date.Format "2 January, 2006" }}</time>
+                                {{ end }}
+                            {{ end }}
+                            {{ if .Params.edited }}
+                                </br>Edited on <time>{{ .Lastmod.Format "2 January, 2006" }}</time>
+                            {{ else }}
+                            {{ end }}
                         </div>
                         <div class="tags">
                             {{ range (.GetTerms "tags") }}
